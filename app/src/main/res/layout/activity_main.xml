@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DF8611"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/txtVClientName"
+        style="@style/titles"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/nombreCliente"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/eTxtClientName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:focusedByDefault="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtVClientName" />
+
+    <TextView
+        android:id="@+id/txtVPizza"
+        style="@style/titles"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/pizza"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/eTxtClientName" />
+
+    <LinearLayout
+        android:id="@+id/lLyPizza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtVPizza">
+
+        <LinearLayout
+            android:id="@+id/lLyPizzaBBQ"
+            style="@style/buttons"
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:src="@drawable/bbq_chicken" />
+
+            <TextView
+                style="@style/btnText"
+                android:text="@string/bbq" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lLyPizzaMargarita"
+            style="@style/buttons"
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:src="@drawable/margaritta3" />
+
+            <TextView
+
+                style="@style/btnText"
+                android:text="@string/margaritta" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lLyPizzaRomana"
+            style="@style/buttons"
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:src="@drawable/romana" />
+
+            <TextView
+
+                style="@style/btnText"
+                android:text="@string/romana" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lLyQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="60px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lLyPizza">
+
+        <Button
+            android:id="@+id/btnLessQuantity"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="-"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txteQuantity"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:text="1"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            />
+
+        <Button
+            android:id="@+id/btnMoreQuantity"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="+"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtVDrinks"
+        style="@style/titles"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/drinks"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lLyQuantity" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtVDrinks">
+
+        <LinearLayout
+            style="@style/buttons"
+            android:id="@+id/lLyWater"
+            android:clickable="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:src="@drawable/watterbottle" />
+
+            <TextView
+                style="@style/btnText"
+                android:text="@string/water" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/buttons"
+            android:clickable="true"
+            android:id="@+id/lLyCola">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:src="@drawable/colabottle" />
+
+            <TextView
+                style="@style/btnText"
+                android:text="@string/cola" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#27922E"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/total"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtVTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="30dp"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="@+id/textView3"
+            android:text="0,0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="€"
+            android:textSize="30dp"
+            app:layout_constraintStart_toEndOf="@+id/txtVTotalPrice"
+            app:layout_constraintTop_toTopOf="@+id/txtVTotalPrice" />
+        <Button
+            android:id="@+id/btnConfirmSelection"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/iconpay"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

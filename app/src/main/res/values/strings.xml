@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">PIZZA TIME</string>
+    <string name="nombreCliente">Client</string>
+    <string name="pizza" translatable="false">Pizza</string>
+    <string name="bbq">BBQ</string>
+    <string name="romana" translatable="false">ROMANA</string>
+    <string name="margaritta">MARGARITTA</string>
+    <string name="water">WATER</string>
+    <string name="cola">COLA</string>
+    <string name="drinks">Drinks</string>
+    <string name="total" translatable="false">TOTAL</string>
+    <string name="orderSumary">Order summary</string>
+    <string name="cancel">Cancel</string>
+    <string name="pay">Pay</string>
+    <string name="numberCard">Creditcard number</string>
+    <string name="creaditcardOwner">Creditcard Owner</string>
+    <string name="cardExpirationDate">Expiration date</string>
+    <string name="cardCVV" translatable="false">CVV</string>
+    <string name="quantity">Qty.</string>
+    <string name="items">Items</string>
+    <string name="uPrice">U. price</string>
+    <string name="priceT">Price</string>
+    <string name="name">NAME</string>
+    <string name="send">SEND</string>
+    <string name="paymentsummary">Payment Sumarry</string>
+    <string name="mail">Payment ticket</string>
+    <string name="accept">ACCEPT</string>
+</resources>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormularioPago"
+    android:background="#DF8611">
+
+    <TextView
+        android:id="@+id/tv_nTargeta"
+        style="@style/titles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/numberCard"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.santalu.maskedittext.MaskEditText
+        android:id="@+id/edTxtnTargeta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="phone"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nTargeta"
+        app:met_mask="#### #### #### ####"
+        android:hint="•••• •••• •••• ••••"/>
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/titles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/creaditcardOwner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edTxtnTargeta"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:id="@+id/etxtTitularTarjeta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:hint="Marcos Mateo Sanchis"/>
+
+    <TextView
+        android:id="@+id/txtVFechaCaducidad"
+        style="@style/titles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/cardExpirationDate"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etxtTitularTarjeta"
+        />
+
+
+    <com.santalu.maskedittext.MaskEditText
+        android:id="@+id/eCreditCardExpiration"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/txtVFechaCaducidad"
+        app:layout_constraintStart_toStartOf="@+id/txtVFechaCaducidad"
+        app:layout_constraintTop_toBottomOf="@+id/txtVFechaCaducidad"
+        android:inputType="phone"
+        app:met_mask="##/##"
+        android:hint="MM/YY"/>
+
+    <TextView
+        android:id="@+id/txtvVCVV"
+        style="@style/titles"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:text="@string/cardCVV"
+        android:textSize="25sp"
+        app:layout_constraintStart_toEndOf="@+id/txtVFechaCaducidad"
+        app:layout_constraintTop_toBottomOf="@+id/etxtTitularTarjeta" />
+
+    <com.santalu.maskedittext.MaskEditText
+        android:id="@+id/eTxtCVV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtvVCVV"
+        app:layout_constraintTop_toBottomOf="@+id/txtvVCVV"
+        android:inputType="phone"
+        app:met_mask="###"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardFront"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/card"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eCreditCardExpiration">
+
+        <TextView
+            android:id="@+id/cardNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="124dp"
+            android:text="•••• •••• •••• ••••"
+            android:textColor="#fff"
+            android:textScaleX="1.1"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cardName"
+            android:layout_width="228dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="180dp"
+            android:text="@string/name"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/cardExpiration"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cardExpiration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="276dp"
+            android:layout_marginLeft="276dp"
+            android:layout_marginTop="192dp"
+            android:text="MM/YY"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardBack"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/cardback"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eCreditCardExpiration">
+
+        <TextView
+            android:id="@+id/cardCVV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:text="•••"
+            android:textColor="#fff"
+            android:textScaleX="1.1"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--Bottom part-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom"
+        android:background="#27922E"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btnPay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            tools:text="@string/pay"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

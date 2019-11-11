@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PIZZA TIME</string>
+    <string name="nombreCliente">Cliente</string>
+    <string name="bbq">BARBACOA</string>
+    <string name="margaritta">MARGARITA</string>
+    <string name="water">AGUA</string>
+    <string name="cola">COCA-COLA</string>
+    <string name="drinks">Bebidas</string>
+    <string name="orderSumary">Resumen de pedido</string>
+    <string name="pay">Pagar</string>
+    <string name="numberCard">Número de tarjeta</string>
+    <string name="creaditcardOwner">Titular de la Tarjeta</string>
+    <string name="cancel">Cancelar</string>
+    <string name="cardExpirationDate">Fecha de Caducidad</string>
+    <string name="quantity">Cant.</string>
+    <string name="items">Productos</string>
+    <string name="uPrice">Precio u.</string>
+    <string name="priceT">Precio</string>
+    <string name="name">NOMBRE</string>
+    <string name="send">ENVIAR</string>
+    <string name="paymentsummary">Resumen de Pago</string>
+    <string name="mail">Resumen de pago</string>
+    <string name="accept">ACEPTAR</string>
+</resources>
