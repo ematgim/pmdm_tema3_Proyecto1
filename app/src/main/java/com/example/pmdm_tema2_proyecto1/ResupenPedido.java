@@ -8,17 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class ResupenPedido extends AppCompatActivity {
-    private ShopingKart shoppingKart;
+    private Menu shoppingKart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resupen_pedido);
         Bundle bundle = getIntent().getExtras();
 
-        shoppingKart = (ShopingKart) bundle.getSerializable("ShoppingKart");
+        shoppingKart = (Menu) bundle.getSerializable("ShoppingKart");
 
         TextView clientName = findViewById(R.id.txtVClientName);
         TextView cantPizza = findViewById(R.id.txtVCantPizza);

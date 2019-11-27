@@ -2,19 +2,20 @@ package com.example.pmdm_tema2_proyecto1;
 
 
 import java.io.Serializable;
-
-public class ShopingKart implements Serializable {
+public class Menu implements Serializable {
     private String clientName;
     private Item pizza;
     private int nPizzas = 1;
     private Item drink;
     private double totalPrice;
 
-    public ShopingKart(){
+    public Menu(){
     pizza= new Item("",0);
     drink = new Item("",0);
     clientName="";
+
     }
+
 
     public double getTotalPrice() {
         return totalPrice;
@@ -27,7 +28,6 @@ public class ShopingKart implements Serializable {
     public Item getDrink() {
         return drink;
     }
-
     public Item getPizza() {
         return pizza;
     }

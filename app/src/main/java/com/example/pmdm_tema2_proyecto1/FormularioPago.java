@@ -1,17 +1,11 @@
 package com.example.pmdm_tema2_proyecto1;
 
-import androidx.annotation.DrawableRes;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Debug;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -24,7 +18,7 @@ import java.util.Calendar;
 
 public class FormularioPago extends AppCompatActivity {
 
-    private ShopingKart shoppingKart;
+    private Menu shoppingKart;
     private ConstraintLayout cardFront;
     private ConstraintLayout cardBack;
      private CreditCard creditCard;
@@ -36,7 +30,7 @@ public class FormularioPago extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
 
-        shoppingKart = (ShopingKart) bundle.getSerializable("ShoppingKart");
+        shoppingKart = (Menu) bundle.getSerializable("ShoppingKart");
         creditCard = new CreditCard();
         //Formulario datos
         final EditText creditCardNum = findViewById(R.id.edTxtnTargeta);

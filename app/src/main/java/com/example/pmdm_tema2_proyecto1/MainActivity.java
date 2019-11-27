@@ -14,40 +14,48 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private ShopingKart shoppingKart;
+    private ShoppingKart shoppingKart;
+    private Menu menu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        if(getIntent() != null ){
-
-        }
-        shoppingKart = new ShopingKart();
+        shoppingKart = new ShoppingKart();
+        menu = new Menu();
 
         Button btnConfirmSelection = findViewById(R.id.btnConfirmSelection);
 
         final EditText clientName = findViewById(R.id.eTxtClientName);
 
         final LinearLayout pizzaBBQ = findViewById(R.id.lLyPizzaBBQ);
+       // final NumberPicker npBBQ = findViewById(R.id.np_bbq);
         final LinearLayout pizzaMargarita = findViewById(R.id.lLyPizzaMargarita);
+        //final NumberPicker npMargarita = findViewById(R.id.np_margarita);
         final LinearLayout pizzaRomana= findViewById(R.id.lLyPizzaRomana);
+        //final NumberPicker npRomana = findViewById(R.id.np_romana);
 
-        final TextView quantity = findViewById(R.id.txteQuantity);
+       final TextView quantity = findViewById(R.id.txteQuantity);
 
-        Button btnLessQuantity = findViewById(R.id.btnLessQuantity);
-        Button btnMoreQuantity = findViewById(R.id.btnMoreQuantity);
+       Button btnLessQuantity = findViewById(R.id.btnLessQuantity);
+       Button btnMoreQuantity = findViewById(R.id.btnMoreQuantity);
 
         final LinearLayout water = findViewById(R.id.lLyWater);
         final LinearLayout cola= findViewById(R.id.lLyCola);
 
         final TextView txtPrecioTotal = findViewById(R.id.txtVTotalPrice);
 
+        Button addToShoppingKart = findViewById(R.id.btn_addToShoppingKart);
+        /*      npBBQ.setMinValue(0);
+        npBBQ.setMaxValue(100);
+        npMargarita.setMinValue(0);
+        npMargarita.setMaxValue(100);
+        npRomana.setMinValue(0);
+        npRomana.setMaxValue(100);
+*/
         water.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shoppingKart.setDrink(new Item(getResources().getString(R.string.water),1.0));
+                menu.setDrink(new Item(getResources().getString(R.string.water),1.0));
                 water.setBackgroundColor(Color.parseColor("#86FFFFFF"));
                 cola.setBackgroundColor(Color.TRANSPARENT);
                 actualizarPrecio(txtPrecioTotal);
@@ -56,20 +64,27 @@ public class MainActivity extends AppCompatActivity {
         cola.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shoppingKart.setDrink(new Item(getResources().getString(R.string.cola),1.5));
+                menu.setDrink(new Item(getResources().getString(R.string.cola),1.5));
                 water.setBackgroundColor(Color.TRANSPARENT);
                 cola.setBackgroundColor(Color.parseColor("#86FFFFFF"));
                 actualizarPrecio(txtPrecioTotal);
             }
         });
+        /*npBBQ.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                if(newVal != 0){
 
-        btnLessQuantity.setOnClickListener(new View.OnClickListener() {
+                }
+            }
+        });*/
+       btnLessQuantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int n = shoppingKart.getnPizzas();
+                int n = menu.getnPizzas();
                 if(n>1){
                     quantity.setText(String.valueOf(--n));
-                    shoppingKart.setnPizzas(n);
+                    menu.setnPizzas(n);
                 }
                 actualizarPrecio(txtPrecioTotal);
             }
@@ -77,19 +92,19 @@ public class MainActivity extends AppCompatActivity {
         btnMoreQuantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int n = shoppingKart.getnPizzas();
+                int n = menu.getnPizzas();
 
                     quantity.setText(String.valueOf(++n));
-                    shoppingKart.setnPizzas(n);
+                    menu.setnPizzas(n);
                 actualizarPrecio(txtPrecioTotal);
             }
 
         });
 
-        pizzaBBQ.setOnClickListener(new View.OnClickListener() {
+     pizzaBBQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shoppingKart.setPizza(new Item(getResources().getString(R.string.bbq),2.0));
+                menu.setPizza(new Item(getResources().getString(R.string.bbq),2.0));
                 pizzaBBQ.setBackgroundColor(Color.parseColor("#86FFFFFF"));
                 pizzaMargarita.setBackgroundColor(Color.TRANSPARENT);
                 pizzaRomana.setBackgroundColor(Color.TRANSPARENT);
@@ -99,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         pizzaMargarita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shoppingKart.setPizza(new Item(getResources().getString(R.string.margaritta),2.5));
+                menu.setPizza(new Item(getResources().getString(R.string.margaritta),2.5));
                 pizzaBBQ.setBackgroundColor(Color.TRANSPARENT);
                 pizzaMargarita.setBackgroundColor(Color.parseColor("#86FFFFFF"));
                 pizzaRomana.setBackgroundColor(Color.TRANSPARENT);
@@ -109,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         pizzaRomana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shoppingKart.setPizza(new Item(getResources().getString(R.string.romana),3.0));
+                menu.setPizza(new Item(getResources().getString(R.string.romana),3.0));
                 pizzaBBQ.setBackgroundColor(Color.TRANSPARENT);
                 pizzaMargarita.setBackgroundColor(Color.TRANSPARENT);
                 pizzaRomana.setBackgroundColor(Color.parseColor("#86FFFFFF"));
@@ -117,30 +132,45 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnConfirmSelection.setOnClickListener(new View.OnClickListener() {
+        addToShoppingKart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                shoppingKart.setClientName(clientName.getText().toString());
-                if(shoppingKart.getClientName().equals("")){
+                menu.setClientName(clientName.getText().toString());
+                if(menu.getClientName().equals("")){
                     Toast.makeText(MainActivity.this, "Debe introducir un nombre", Toast.LENGTH_SHORT).show();
-                } else if(shoppingKart.getPizza().getName()==""){
+                } else if(menu.getPizza().getName()==""){
                     Toast.makeText(MainActivity.this, "Seleccione una pizza", Toast.LENGTH_SHORT).show();
-                }else if(shoppingKart.getnPizzas()<1){
+                }else if(menu.getnPizzas()<1){
                     Toast.makeText(MainActivity.this, "Debe seleccionar como minimo una porción de pizza", Toast.LENGTH_SHORT).show();
-                }else if(shoppingKart.getDrink().getName() ==""){
+                }else if(menu.getDrink().getName() ==""){
                     Toast.makeText(MainActivity.this, "Seleccione una bebida", Toast.LENGTH_SHORT).show();
                 }else{
-                    Intent intent = new Intent(MainActivity.this, ResupenPedido.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("ShoppingKart", shoppingKart);
-                    intent.putExtras(bundle);
-                    startActivityForResult(intent,1);
+                   shoppingKart.addMenu(menu);
+                   if(clientName.isEnabled()){
+                       shoppingKart.setClientName(clientName.getText().toString());
+                       clientName.setEnabled(false);
+                   }
+                   clearForm();
                 }
 
             }
         });
+
+        btnConfirmSelection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent intent = new Intent(MainActivity.this, ResupenPedido.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("ShoppingKart", shoppingKart);
+                intent.putExtras(bundle);
+                startActivityForResult(intent,1);
+            }
+        });
+
 
     }
 
@@ -154,8 +184,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void actualizarPrecio (TextView txtPrecio){
-        Double total = (shoppingKart.getPizza().getPrice() * shoppingKart.getnPizzas()) + shoppingKart.getDrink().getPrice();
+        Double total = (menu.getPizza().getPrice() * menu.getnPizzas()) + menu.getDrink().getPrice();
         txtPrecio.setText(total+"");
-        shoppingKart.setTotalPrice(total);
+        menu.setTotalPrice(total);
     }
+    private void clearForm(){
+
+         LinearLayout pizzaBBQ = findViewById(R.id.lLyPizzaBBQ);
+         LinearLayout pizzaMargarita = findViewById(R.id.lLyPizzaMargarita);
+         LinearLayout pizzaRomana= findViewById(R.id.lLyPizzaRomana);
+
+         LinearLayout water = findViewById(R.id.lLyWater);
+         LinearLayout cola= findViewById(R.id.lLyCola);
+
+         TextView quantity = findViewById(R.id.txteQuantity);
+        menu = new Menu();
+        pizzaBBQ.setBackgroundColor(Color.TRANSPARENT);
+        pizzaMargarita.setBackgroundColor(Color.TRANSPARENT);
+        pizzaRomana.setBackgroundColor(Color.TRANSPARENT);
+
+        water.setBackgroundColor(Color.TRANSPARENT);
+        cola.setBackgroundColor(Color.TRANSPARENT);
+        quantity.setText("1");
+    }
+
+
 }

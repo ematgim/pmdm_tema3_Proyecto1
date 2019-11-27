@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ResupenPago extends AppCompatActivity {
-    private ShopingKart shoppingKart;
+    private Menu shoppingKart;
     private CreditCard creditCard;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class ResupenPago extends AppCompatActivity {
         setContentView(R.layout.activity_resupen_pago);
         Bundle bundle = getIntent().getExtras();
 
-        shoppingKart = (ShopingKart) bundle.getSerializable("ShoppingKart");
+        shoppingKart = (Menu) bundle.getSerializable("ShoppingKart");
         creditCard =(CreditCard) bundle.getSerializable("CreditCard");
         TextView clientName = findViewById(R.id.txtVClientName);
         TextView cantPizza = findViewById(R.id.txtVCantPizza);
