@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                Intent intent = new Intent(MainActivity.this, ResupenPedido.class);
+                Intent intent = new Intent(MainActivity.this, testrecycle.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("ShoppingKart", shoppingKart);
                 intent.putExtras(bundle);

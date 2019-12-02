@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".testrecycle"></activity>
         <activity android:name=".FormularioPago" />
-        <activity android:name=".ResupenPago"/>
-        <activity android:name=".ResupenPedido"/>
+        <activity android:name=".ResupenPago" />
+        <activity android:name=".ResupenPedido" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

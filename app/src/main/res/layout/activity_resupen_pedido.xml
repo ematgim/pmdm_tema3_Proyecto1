@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
+<!--
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/txtVItemPizza"
         android:layout_width="0dp"
@@ -108,7 +108,7 @@
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/txtVPriceU"
             app:layout_constraintTop_toTopOf="@+id/txtVPriceU" />
-        <!--Start of the items-->
+
         <TextView
             android:id="@+id/txtVCantPizza"
             style="@style/txtVitems"
@@ -216,7 +216,25 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+-->
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="363dp"
+        android:layout_height="550dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" >
+            <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+                android:id="@+id/recyclerView"
+            />
+    </LinearLayout>
+
+
+    <!--Bottom bar-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -255,5 +273,7 @@
             app:layout_constraintStart_toEndOf="@+id/btnCancel"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

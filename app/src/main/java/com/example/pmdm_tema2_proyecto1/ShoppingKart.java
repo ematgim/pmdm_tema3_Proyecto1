@@ -8,7 +8,7 @@ public class ShoppingKart implements Serializable {
 
 
     private String clientName;
-    private List<Menu> menuList;
+    private ArrayList<Menu> menuList;
     private Double totalPrice = 0.0;
 
     public ShoppingKart(){
@@ -23,7 +23,7 @@ public class ShoppingKart implements Serializable {
         this.clientName = clientName;
     }
 
-    public List<Menu> getMenuList() {
+    public ArrayList<Menu> getMenuList() {
         return menuList;
     }
 
