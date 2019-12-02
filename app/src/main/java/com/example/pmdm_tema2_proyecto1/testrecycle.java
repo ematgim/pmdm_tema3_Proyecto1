@@ -22,7 +22,7 @@ public class testrecycle extends AppCompatActivity {
 
         shoppingKart = (ShoppingKart) bundle.getSerializable("ShoppingKart");
 
-        //ArrayList<Menu> menuList = shoppingKart.getMenuList();
+        ArrayList<Menu> menuList = shoppingKart.getMenuList();
 
 
         // Buscamos el RecyclerView e indicamos que su tamaño es fijo
